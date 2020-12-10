@@ -1,0 +1,26 @@
+{% extends "/layouts/main.html" %}
+
+{% block body %}
+
+  <div class="row">
+    <div class="col-4 offset-4">
+      <div class="card">
+        <img src="https://cdn2.thecatapi.com/images/{{vote['image_id']}}.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center"><b>ID</b> {{vote['id']}}</h5>
+          {% if vote['value'] == 1 %}
+            <p class="card-text"><b>Value</b>: Liked</p>
+          {% else %}
+            <p class="card-text"><b>Value</b>: Disliked</p>
+          {% endif %}
+          <p class="card-text"><b>Image</b>: {{vote['image_id']}}</p>
+          <p class="card-text"><b>User</b>: {{vote['sub_id']}}</p>
+          <p class="card-text"><b>Date</b>: {{vote['created_at']}}</p>
+          <p class="card-text"><b>Country</b>: {{vote['country_code']}}</p>
+          <a href="/" class="btn btn-primary">Go back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
