@@ -72,10 +72,13 @@ def login():
         try:
             username = request.form['username']
             password = request.form['password']
-            if(username == 'sza95' and password == '123456789'):
-                session['login'] = True
-                session['username'] = username
-                return redirect(url_for('index'))
+            if(username == 'sza95'):
+                if(password == '123456789'):
+                    session['login'] = True
+                    session['username'] = username
+                    return redirect(url_for('index'))
+                else:
+                    flash('Wrong Password')  
             else:
                 flash('User not found')  
         except:

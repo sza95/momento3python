@@ -4,26 +4,27 @@
        <table class="table table-dark table-striped">
             <thead>
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Image ID</th>
-                <th scope="col">Country Code</th>
-                <th scope="col">Sub ID</th>
-                <th scope="col">Value</th>
-                <th scope="col">Date Created</th>
-                <th scope="col">Actions</th>
+                <th scope="col" class="text-center">ID</th>
+                <th scope="col" class="text-center">Image ID</th>
+                <th scope="col" class="text-center">Country Code</th>
+                <th scope="col" class="text-center">Sub ID</th>
+                <th scope="col" class="text-center">Value</th>
+                <th scope="col" class="text-center">Date Created</th>
+                <th scope="col" class="text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
 
             {% for vote in votes %}
               <tr>
-                <th scope="row">{{vote['id']}}</th>
-                <td>{{vote['image_id']}}</td>
-                <td>{{vote['country_code']}}</td>
-                <td>{{vote['sub_id']}}</td>
-                <td>{{vote['value']}}</td>
-                <td>{{vote['created_at']}}</td>
-                <td><a href="/view/{{vote['id']}}" class="btn btn-info"> View</a> | <a href="/delete/{{vote['id']}}" class="btn btn-danger"> Delete</a></td>
+                <th scope="row" class="text-center">{{vote['id']}}</th>
+                <td class="text-center">{{vote['image_id']}}</td>
+                <td class="text-center">{{vote['country_code']}}</td>
+                <td class="text-center">{{vote['sub_id']}}</td>
+                <td class="text-center">{{vote['value']}}</td>
+                {%  set formatdate = vote['created_at'] %}
+                <td class="text-center">{{formatdate[08:10]}}/{{formatdate[5:7]}}/{{formatdate[:4]}}</td>
+                <td class="text-center"><a href="/view/{{vote['id']}}" class="btn btn-info"> View</a> | <a href="/delete/{{vote['id']}}" class="btn btn-danger"> Delete</a></td>
               </tr>
             {% endfor %}
             </tbody>

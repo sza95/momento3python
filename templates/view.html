@@ -15,7 +15,8 @@
           {% endif %}
           <p class="card-text"><b>Image</b>: {{vote['image_id']}}</p>
           <p class="card-text"><b>User</b>: {{vote['sub_id']}}</p>
-          <p class="card-text"><b>Date</b>: {{vote['created_at']}}</p>
+          {%  set formatdate = vote['created_at'] %}
+          <p class="card-text"><b>Date</b>: {{formatdate[08:10]}}/{{formatdate[5:7]}}/{{formatdate[:4]}}</p>
           <p class="card-text"><b>Country</b>: {{vote['country_code']}}</p>
           <a href="/" class="btn btn-primary">Go back</a>
         </div>
